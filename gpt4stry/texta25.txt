@@ -1,0 +1,49 @@
+Great, let's add some functionality to our `InteractionModule` class. This encompasses functions to receive a task and feedback from the user, then, call the methods of the `LearningModule` accordingly.
+
+Here is an updated version of the `interaction.py` file:
+
+```python
+# interaction.py
+from learning import LearningModule
+from task import Task
+
+class InteractionModule:
+    def __init__(self, learning_module: LearningModule):
+        self.learning_module = learning_module
+
+    def receive_user_input(self, task_desc: str, task_difficulty: int, feedback: float):
+        task = Task(task_desc, task_difficulty)
+        self.learning_module.adapt_behavior(feedback)
+        self.learning_module.distribute_task(task)
+```
+
+Here, I introduced a new method `receive_user_input`. This method will take task's description, task's difficulty and feedback as input from the user. It creates a `Task` object using `task_desc` and `task_difficulty`. Once the `Task` object has been initiated, the method calls `adapt_behavior` from the `LearningModule` to incorporate the provided feedback into the behavior of our LLMs. Finally, it calls `distribute_task` from the `LearningModule` to distribute the new task among our LLMs. 
+
+Considering the changes we made, we also need to update our main script accordingly:
+
+```python
+# main.py
+from llm import LLM
+from learning import LearningModule
+from coordination import CoordinationModule
+from interaction import InteractionModule
+
+# Initialize our coordination module 
+coordination = CoordinationModule()
+
+# Initialize our learning module with the llms from coordination
+learning = LearningModule(coordination.llms)
+
+# Initialize our interaction module with the learning module
+interaction = InteractionModule(learning)
+
+# Get user's task and feedback
+task_desc = 'Write a research paper on collaborative AI'
+task_difficulty = 95
+feedback = 30
+
+# Use interaction module to handle user input
+interaction.receive_user_input(task_desc, task_difficulty, feedback)
+```
+
+We can add more functionality on top of this, such as error handling for invalid inputs and further validation, but this should provide a good starting point.

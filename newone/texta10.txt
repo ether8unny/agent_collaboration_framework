@@ -1,0 +1,50 @@
+Sure! Let's start writing the code for the Communications module.
+
+```python
+class Communications:
+    def __init__(self):
+        self.message_queue = []
+
+    def send_message(self, sender, recipient, message):
+        self.message_queue.append({"sender": sender, "recipient": recipient, "message": message})
+
+    def receive_message(self, recipient):
+        received_messages = []
+        for message in self.message_queue:
+            if message["recipient"] == recipient:
+                received_messages.append(message["message"])
+        self.message_queue = [message for message in self.message_queue if message["recipient"] != recipient]
+        return received_messages
+```
+
+This code defines the Communications class, which has an attribute `message_queue` to store the messages. The `send_message` method takes in the sender, recipient, and message as parameters and appends a dictionary representing the message to the message_queue list.
+
+The `receive_message` method takes in the recipient as a parameter and retrieves all the messages that were sent to that recipient. It iterates over the `message_queue` and checks for messages with a matching recipient. The matching messages are appended to the `received_messages` list, and then removed from the `message_queue`. Finally, the `received_messages` list is returned.
+
+Now, we can integrate this module into the `main.py` script. Here's an example of how we can use the Communications module:
+
+```python
+from communications import Communications
+
+def main():
+    # Instantiate the Communications module
+    communications = Communications()
+
+    # Sending a message
+    sender = "LLM 1"
+    recipient = "LLM 2"
+    message = "Hello LLM 2!"
+    communications.send_message(sender, recipient, message)
+
+    # Receiving messages
+    received_messages = communications.receive_message(recipient)
+    for message in received_messages:
+        print(f"Received message: {message}")
+
+if __name__ == "__main__":
+    main()
+```
+
+In this example, we import the Communications module and create an instance of it. We then use the `send_message` method to send a message from LLM 1 to LLM 2. Finally, we use the `receive_message` method to retrieve the messages sent to LLM 2 and print them.
+
+You can now run the `main.py` script and see the output. Let me know if you have any questions or if there's anything else you'd like to discuss!

@@ -1,0 +1,24 @@
+Sure! Let's start by implementing the Communications module. Please create a new file named `communications.py` and add the following code:
+
+```python
+class Communications:
+    def __init__(self):
+        self.message_queue = []
+
+    def send_message(self, sender, recipient, message):
+        self.message_queue.append({"sender": sender, "recipient": recipient, "message": message})
+
+    def receive_message(self, recipient):
+        received_messages = []
+        for message in self.message_queue:
+            if message["recipient"] == recipient:
+                received_messages.append(message["message"])
+        self.message_queue = [message for message in self.message_queue if message["recipient"] != recipient]
+        return received_messages
+```
+
+In this code, we define the `Communications` class with an `__init__` method that initializes the `message_queue` attribute as an empty list. The `send_message` method takes in the sender, recipient, and message as parameters and appends a dictionary representing the message to the `message_queue`.
+
+The `receive_message` method takes the recipient as a parameter. It iterates through the `message_queue` and selects the messages that match the recipient. The selected messages are appended to the `received_messages` list and then removed from the `message_queue`. Finally, the `received_messages` list is returned.
+
+Once you have saved the `communications.py` file, we can proceed with implementing the other modules. Let me know once you are ready to move on!
