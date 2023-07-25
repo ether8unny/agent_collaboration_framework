@@ -1,0 +1,1 @@
+There are no code blocks in the given message. It mainly discusses design concepts for a collaborative framework.

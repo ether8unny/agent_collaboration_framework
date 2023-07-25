@@ -1,0 +1,13 @@
+Sure! Before we start writing the code, let's discuss two design concepts that we can consider for the collaborative framework:
+
+1. Centralized Collaboration:
+   - In this concept, the Collaboration Manager will act as a central entity that receives user input, distributes it to the registered LLMs, collects the results, and then displays them to the user.
+   - The Collaboration Manager will be responsible for coordinating the collaboration between the LLMs and handling any conflicts that may arise during the collaboration.
+   - The LLMs will communicate with the Collaboration Manager to receive and send information.
+
+2. Distributed Collaboration:
+   - In this concept, each LLM will be responsible for its own collaboration with the user and other LLMs.
+   - The LLMs will communicate directly with each other to share and merge information, and also with the user to receive input and display results.
+   - The Collaboration Manager will play a minimal role in this concept, mainly serving as a registry for the LLMs.
+
+Both concepts have their own advantages and considerations, so let's discuss them further and decide on the one that best suits our project.
