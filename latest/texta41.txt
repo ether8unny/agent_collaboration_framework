@@ -1,0 +1,31 @@
+Certainly! Let's continue with the implementation of the CommunicationModule:
+
+```python
+class CommunicationModule:
+    def __init__(self):
+        self.messages = []
+    
+    def send_message(self, sender, recipient, message):
+        if sender is not None and recipient is not None and message is not None:
+            self.messages.append((sender, recipient, message))
+    
+    def get_messages(self):
+        return self.messages.copy()
+    
+    def clear_messages(self):
+        self.messages = []
+```
+
+In this implementation, we have a `CommunicationModule` class that allows sending messages, retrieving all messages, and clearing the message history.
+
+The messages are stored in a list, where each message is represented by a tuple containing the sender, recipient, and the message content.
+
+The `send_message` method takes the sender, recipient, and message as input. It performs input validation to ensure that all three parameters are not None before adding the message to the messages list.
+
+The `get_messages` method returns a copy of the messages list, allowing external components to retrieve all the messages.
+
+The `clear_messages` method resets the messages list, clearing the message history.
+
+Note: In this implementation, the sender and recipient parameters are assumed to be string identifiers representing the senders' and recipients' names. You can adapt the implementation to your specific project requirements, such as using objects or unique identifiers for senders and recipients.
+
+Let me know if you have any questions or if there's anything else I can assist you with!

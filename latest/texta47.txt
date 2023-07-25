@@ -1,0 +1,47 @@
+Apologies for the confusion. Let's continue with the implementation of the CommunicationModule:
+
+```python
+class CommunicationModule:
+    def __init__(self):
+        self.messages = []
+    
+    def send_message(self, sender, recipient, content):
+        if sender is not None and recipient is not None and content is not None:
+            message = {
+                'sender': sender,
+                'recipient': recipient,
+                'content': content
+            }
+            self.messages.append(message)
+    
+    def get_messages(self):
+        return self.messages.copy()
+    
+    def filter_messages_by_sender(self, sender):
+        filtered_messages = []
+        
+        for message in self.messages:
+            if message['sender'] == sender:
+                filtered_messages.append(message)
+        
+        return filtered_messages
+    
+    def filter_messages_by_recipient(self, recipient):
+        filtered_messages = []
+        
+        for message in self.messages:
+            if message['recipient'] == recipient:
+                filtered_messages.append(message)
+        
+        return filtered_messages
+```
+
+In this updated implementation, we have added methods for message filtering based on the sender and recipient.
+
+The `filter_messages_by_sender` method takes a sender as input and returns a list of messages where the sender matches the provided input.
+
+The `filter_messages_by_recipient` method takes a recipient as input and returns a list of messages where the recipient matches the provided input.
+
+Both methods iterate over the messages stored in the `messages` list and check for matches based on the sender or recipient.
+
+Let me know if you have any questions or if there's anything else I can assist you with!                 

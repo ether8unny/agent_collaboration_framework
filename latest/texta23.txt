@@ -1,0 +1,32 @@
+Certainly! Let's continue with the implementation of the CommunicationsModule:
+
+```python
+class CommunicationsModule:
+    def __init__(self):
+        self.messages = []
+    
+    def send_message(self, sender, recipient, message):
+        if sender is None or recipient is None or message is None:
+            return False
+        
+        self.messages.append({
+            'sender': sender,
+            'recipient': recipient,
+            'message': message
+        })
+        
+        return True
+    
+    def get_messages(self):
+        return self.messages
+```
+
+In this implementation, we have a `CommunicationsModule` class that allows sending and retrieving messages.
+
+The messages are stored as a list of dictionaries, where each dictionary represents a message and contains the sender, recipient, and the message itself.
+
+The `send_message` method takes the sender, recipient, and message as input and adds the message to the list of messages. It performs basic input validation to ensure that none of the parameters are None. If any of the parameters are None, it returns False to indicate that the message was not sent. Otherwise, it returns True to indicate a successful message transmission.
+
+The `get_messages` method returns the list of all messages.
+
+Let me know if you have any questions or if there's anything else I can assist you with!
